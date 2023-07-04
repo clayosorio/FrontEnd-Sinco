@@ -80,11 +80,11 @@ const FormularioCalificaciones = () => {
                     <form className='form-container' onSubmit={ handleSubmit } style={{height:"50px", alignItems:"center"}}>
                             <Grid
                                 container
-                                direction="column"
+                                direction="row"
                                 alignItems={"center"}
                                 justifyContent={'space-evenly'}
-                                spacing={2}
-                                sx={{ width: "100%" }}
+                                spacing={3}
+                                sx={{ width: "100%", height: "00px" }}
                             >
                                 <Grid item >
                                     <TextField 
@@ -190,18 +190,20 @@ const FormularioCalificaciones = () => {
                                         helperText={errors.calificacionFinal}
                                         required={true}
                                     />
+                                     <Grid item >
+                                     {loading && <CircularProgress />} {}
+                                        <Button type="submit" variant='contained'>
+                                         Crear Calificación
+                                        </Button>
+                                        <Snackbar
+                                            open={showSuccess}
+                                            autoHideDuration={3000}
+                                            onClose={cardClose}
+                                            message="Alumno eliminado exitosamente"
+                                        />        
+                                     </Grid>
                                 </Grid>
-                            </Grid>
-                            {loading && <CircularProgress />} {}
-                            <Button type="submit" variant='contained' style={{  alignItems:"center", display:"inline-block"}}>
-                                Crear Calificación
-                            </Button>
-                            <Snackbar
-                                open={showSuccess}
-                                autoHideDuration={3000}
-                                onClose={cardClose}
-                                message="Alumno eliminado exitosamente"
-                            />                          
+                            </Grid>                  
                     </form>
                 </div>
             </Paper>

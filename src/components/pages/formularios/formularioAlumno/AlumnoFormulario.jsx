@@ -77,7 +77,7 @@ const AlumnoFormulario = () => {
             }}>
             <Paper elevation={3} square variant="elevation" style={{ width: '300px', textAlign: 'center', height: "600px"  }} className="form-container">
             <div style={{ display: '-ms-flexbox', justifyContent: 'center' }}>
-                    <form className='form-container' onSubmit={ handleSubmit } style={{height:"50px", alignItems:"center"}}>
+                    <form className='form-container' onSubmit={ handleSubmit }  style={{height:"50px", alignItems:"center"}}>
                             <Grid
                                 container
                                 direction="column"
@@ -164,17 +164,19 @@ const AlumnoFormulario = () => {
                                         required={true}
                                     />
                                 </Grid>
-                            </Grid>
-                            {loading && <CircularProgress />} { `${loading && <p>Cargando...</p>}`  }
-                            <Button type="submit" variant='contained' style={{  alignItems:"center", display:"inline-block"}}>
+                            <Grid item >
+                            {loading && <CircularProgress />} {}
+                            <Button type="submit" variant='contained'>
                                 Guardar Alumno
-                            </Button> 
-                            <Snackbar
-                                open={showSuccess}
-                                autoHideDuration={3000}
-                                onClose={cardClose}
-                                message="Alumno eliminado exitosamente"
-                            />                        
+                            </Button>
+                                <Snackbar
+                                    open={showSuccess}
+                                    autoHideDuration={3000}
+                                    onClose={cardClose}
+                                    message="Alumno eliminado exitosamente"
+                            />        
+                    </Grid>    
+                            </Grid>           
                     </form>
                 </div>
             </Paper>

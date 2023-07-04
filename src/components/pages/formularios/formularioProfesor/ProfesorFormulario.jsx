@@ -161,17 +161,19 @@ const ProfesorFormulario = () => {
                                         required={true}
                                     />
                                 </Grid>
-                            </Grid>
-                            {loading && <CircularProgress />} { `${loading && <p>Cargando...</p>}`  }
-                            <Button type="submit" variant='contained' style={{  alignItems:"center", display:"inline-block"}}>
-                                Guardar Profesor
-                            </Button>
+                                <Grid item >
+                                 {loading && <CircularProgress />} {}
+                                <Button type="submit" variant='contained'>
+                                     Guardar Asignatura
+                                </Button>
                             <Snackbar
                                 open={showSuccess}
                                 autoHideDuration={3000}
                                 onClose={cardClose}
                                 message="Alumno eliminado exitosamente"
-                            />                           
+                            />        
+                    </Grid>    
+                            </Grid>
                     </form>
                 </div>
             </Paper>

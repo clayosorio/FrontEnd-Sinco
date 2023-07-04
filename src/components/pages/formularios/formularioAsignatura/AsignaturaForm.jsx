@@ -66,7 +66,6 @@ const AsignaturaForm = () => {
                     justifyContent={'space-evenly'}
                     spacing={2}
                     sx={{ width: "100%" }}
-                    
                 >
                     <Grid item >
                         <TextField 
@@ -93,17 +92,20 @@ const AsignaturaForm = () => {
                             helperText={errors.nombreAsignatura}  
                             required={true}              />
                     </Grid>
+                    <Grid item >
+                        {loading && <CircularProgress />} {}
+                        <Button type="submit" variant='contained'>
+                             Guardar Asignatura
+                        </Button>
+                            <Snackbar
+                                open={showSuccess}
+                                autoHideDuration={3000}
+                                onClose={cardClose}
+                                message="Alumno eliminado exitosamente"
+                            />        
+                    </Grid>            
                 </Grid>
-                {loading && <CircularProgress />} { } 
-                <Button type="submit" variant='contained'>
-                    Guardar Asignatura
-                    </Button>
-                    <Snackbar
-                    open={showSuccess}
-                    autoHideDuration={3000}
-                    onClose={cardClose}
-                    message="Asignatura registrada exitosamente"
-                    />
+
                 </form>
             </Paper>
         </div>
